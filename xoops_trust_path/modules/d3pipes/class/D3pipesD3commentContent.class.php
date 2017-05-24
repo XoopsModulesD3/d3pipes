@@ -8,8 +8,8 @@ class D3pipesD3commentContent extends D3commentAbstract {
 
 function fetchSummary( $external_link_id )
 {
-	$db =& Database::getInstance() ;
-	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextsanitizer::getInstance() ;
+	$db = Database::getInstance() ;
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextsanitizer::getInstance() ;
 
 	$mydirname = $this->mydirname ;
 	if( preg_match( '/[^0-9a-zA-Z_-]/' , $mydirname ) ) die( 'Invalid mydirname' ) ;
@@ -38,7 +38,7 @@ function validate_id( $link_id )
 	$clipping_id = intval( $link_id ) ;
 	$mydirname = $this->mydirname ;
 
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 
 	list( $count ) = $db->fetchRow( $db->query( "SELECT COUNT(*) FROM ".$db->prefix($mydirname."_clippings")." WHERE clipping_id=$clipping_id" ) ) ;
 	if( $count <= 0 ) return false ;
@@ -51,7 +51,7 @@ function onUpdate( $mode , $link_id , $forum_id , $topic_id , $post_id = 0 )
 	$clipping_id = intval( $link_id ) ;
 	$mydirname = $this->mydirname ;
 
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 
 	// $count = $this->getPostsCount( $forum_id , $link_id ) ;
 	list( $count ) = $db->fetchRow( $db->query( "SELECT COUNT(*) FROM ".$db->prefix($this->d3forum_dirname."_posts")." p LEFT JOIN ".$db->prefix($this->d3forum_dirname."_topics")." t ON t.topic_id=p.topic_id WHERE t.forum_id=$forum_id AND t.topic_external_link_id='$clipping_id'" ) ) ; // should be replaced

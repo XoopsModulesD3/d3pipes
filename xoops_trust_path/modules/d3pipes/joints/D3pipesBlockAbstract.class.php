@@ -19,7 +19,7 @@ class D3pipesBlockAbstract extends D3pipesJointAbstract {
 		$this->mydirname = $mydirname ;
 		$this->pipe_id = intval( $pipe_id ) ;
 		$this->option = $option ;
-		$this->db =& Database::getInstance() ;
+		$this->db = Database::getInstance() ;
 	}
 	function execute( $dummy = '' , $max_entries = '' )
 	{
@@ -53,7 +53,7 @@ class D3pipesBlockAbstract extends D3pipesJointAbstract {
 		$block = call_user_func( $this->func_name , $this->block_options ) ;
 
 		// update lastfetch_time
-		$db =& Database::getInstance() ;
+		$db = Database::getInstance() ;
 		$db->queryF( "UPDATE ".$db->prefix($this->mydirname."_pipes")." SET lastfetch_time=UNIX_TIMESTAMP() WHERE pipe_id=$this->pipe_id" ) ;
 
 		return $this->reassign( $block ) ;
@@ -188,7 +188,7 @@ class D3pipesBlockAbstract extends D3pipesJointAbstract {
 		$langmanpath = XOOPS_TRUST_PATH.'/libs/altsys/class/D3LanguageManager.class.php' ;
 		if( ! file_exists( $langmanpath ) ) die( 'install the latest altsys' ) ;
 		require_once( $langmanpath ) ;
-		$langman =& D3LanguageManager::getInstance() ;
+		$langman = D3LanguageManager::getInstance() ;
 		$langman->read( 'blocks.php' , $this->target_dirname ) ;
 	}
 

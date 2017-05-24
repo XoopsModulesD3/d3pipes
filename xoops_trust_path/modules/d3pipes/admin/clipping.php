@@ -3,8 +3,8 @@
 require_once dirname(dirname(__FILE__)).'/include/common_functions.php' ;
 require_once dirname(dirname(__FILE__)).'/include/admin_functions.php' ;
 require_once dirname(dirname(__FILE__)).'/class/gtickets.php' ;
-(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
-$db =& Database::getInstance() ;
+(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
+$db = Database::getInstance() ;
 
 // d3forum integration
 $d3comment_dirname = preg_replace( '/[^0-9a-zA-Z_-]/' , '' , $xoopsModuleConfig['comment_dirname'] ) ;

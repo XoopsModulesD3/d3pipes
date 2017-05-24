@@ -28,7 +28,7 @@ function b_d3pipes_sync_show( $options )
 	$errors = $union_obj->getErrors() ;
 
 	// language file of main.php
-	$langman =& D3LanguageManager::getInstance() ;
+	$langman = D3LanguageManager::getInstance() ;
 	$langman->read( 'main.php' , $mydirname , basename(dirname(dirname(__FILE__))) ) ;
 
 	$block = array( 

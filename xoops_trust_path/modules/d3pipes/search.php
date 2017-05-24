@@ -21,7 +21,7 @@ function d3pipes_global_search_base( $mydirname , $keywords , $andor , $limit , 
 		return array() ;
 	}
 
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 
 	// XOOPS Search module
 	$showcontext = empty( $_GET['showcontext'] ) ? 0 : 1 ;

@@ -3,8 +3,8 @@
 require_once dirname(dirname(__FILE__)).'/include/common_functions.php' ;
 require_once dirname(dirname(__FILE__)).'/include/admin_functions.php' ;
 require_once dirname(dirname(__FILE__)).'/class/gtickets.php' ;
-(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
-$db =& Database::getInstance() ;
+(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
+$db = Database::getInstance() ;
 
 
 $all_joints = d3pipes_admin_fetch_joints( $mydirname ) ;

@@ -10,7 +10,7 @@ class D3pipesClipModuledb extends D3pipesClipAbstract {
 		// delete expired clippings
 		$this->removeExpired() ;
 
-		$db =& Database::getInstance() ;
+		$db = Database::getInstance() ;
 		$clip_table = $db->prefix( $this->mydirname.'_clippings' ) ;
 
 		// count entries of current feed(return this number of entries instead of max_entries)
@@ -38,7 +38,7 @@ class D3pipesClipModuledb extends D3pipesClipAbstract {
 	// fetch multiple entries
 	function getLatestClippings( $max_entries )
 	{
-		$db =& Database::getInstance() ;
+		$db = Database::getInstance() ;
 
 		$clip_table = $db->prefix( $this->mydirname.'_clippings' ) ;
 
@@ -68,7 +68,7 @@ class D3pipesClipModuledb extends D3pipesClipAbstract {
 	// fetch single entry
 	function getClipping( $clipping_id )
 	{
-		$db =& Database::getInstance() ;
+		$db = Database::getInstance() ;
 
 		$clip_table = $db->prefix( $this->mydirname.'_clippings' ) ;
 
@@ -97,7 +97,7 @@ class D3pipesClipModuledb extends D3pipesClipAbstract {
 	// fetch entries in the range
 	function getClippings( $pipe_id , $num , $pos = 0 )
 	{
-		$db =& Database::getInstance() ;
+		$db = Database::getInstance() ;
 
 		$clip_table = $db->prefix( $this->mydirname.'_clippings' ) ;
 
@@ -118,7 +118,7 @@ class D3pipesClipModuledb extends D3pipesClipAbstract {
 	// get entries count of the pipe
 	function getClippingCount( $pipe_id )
 	{
-		$db =& Database::getInstance() ;
+		$db = Database::getInstance() ;
 
 		$clip_table = $db->prefix( $this->mydirname.'_clippings' ) ;
 
@@ -135,7 +135,7 @@ class D3pipesClipModuledb extends D3pipesClipAbstract {
 
 		if( empty( $clip_life_time ) ) return ;
 
-		$db =& Database::getInstance() ;
+		$db = Database::getInstance() ;
 
 		$clip_table = $db->prefix( $this->mydirname.'_clippings' ) ;
 

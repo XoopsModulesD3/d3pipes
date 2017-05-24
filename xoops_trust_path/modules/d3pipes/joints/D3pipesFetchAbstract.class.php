@@ -39,7 +39,7 @@ class D3pipesFetchAbstract extends D3pipesJointAbstract {
 		fclose( $fp ) ;
 
 		// update lastfetch_time
-		$db =& Database::getInstance() ;
+		$db = Database::getInstance() ;
 		$db->queryF( "UPDATE ".$db->prefix($this->mydirname."_pipes")." SET lastfetch_time=UNIX_TIMESTAMP() WHERE pipe_id=$this->pipe_id" ) ;
 
 		return true ;
