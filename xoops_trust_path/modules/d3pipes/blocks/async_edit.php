@@ -47,10 +47,10 @@ function b_d3pipes_get_pipe_options( $mydirname )
 	require_once dirname(dirname(__FILE__)).'/include/admin_functions.php' ;
 
 	require_once( XOOPS_TRUST_PATH.'/libs/altsys/class/D3LanguageManager.class.php' ) ;
-	$langman =& D3LanguageManager::getInstance() ;
+	$langman = D3LanguageManager::getInstance() ;
 	$langman->read( 'admin.php' , $mydirname , $mytrustdirname ) ;
 
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 
 	$result = $db->query( "SELECT pipe_id,name,joints FROM ".$db->prefix($mydirname."_pipes")." WHERE block_disp ORDER BY weight,pipe_id" ) ;
 	$pipe_options = array( '' => '----' ) ;

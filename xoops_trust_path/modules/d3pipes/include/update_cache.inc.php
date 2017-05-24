@@ -9,7 +9,7 @@ $mytrustdirpath = dirname( dirname( __FILE__ ) ) ;
 $langmanpath = XOOPS_TRUST_PATH.'/libs/altsys/class/D3LanguageManager.class.php' ;
 if( ! file_exists( $langmanpath ) ) die( 'install the latest altsys' ) ;
 require_once( $langmanpath ) ;
-$langman =& D3LanguageManager::getInstance() ;
+$langman = D3LanguageManager::getInstance() ;
 $langman->read( 'main.php' , $mydirname , $mytrustdirname ) ;
 
 
@@ -25,7 +25,7 @@ $configs = $config_handler->getConfigList( $module->mid() ) ;
 d3pipes_common_delete_all_cache( $mydirname , 0 , true , false ) ;
 
 // pipes loop
-$db =& Database::getInstance() ;
+$db = Database::getInstance() ;
 $result = $db->query( "SELECT pipe_id FROM ".$db->prefix($mydirname."_pipes") ) ;
 while( list( $pipe_id ) = $db->fetchRow( $result ) ) {
 	$pipe4assign = d3pipes_common_get_pipe4assign( $mydirname , intval( $pipe_id ) ) ;

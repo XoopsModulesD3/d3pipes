@@ -43,8 +43,8 @@ function d3pipes_common_get_submenu( $mydirname , $caller = 'xoops_version' )
 	$config_handler =& xoops_gethandler('config') ;
 	$mod_config =& $config_handler->getConfigsByCat( 0 , $module->getVar('mid') ) ;
 
-	$db =& Database::getInstance() ;
-	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
+	$db = Database::getInstance() ;
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 
 	// pipes query
 	$sql = "SELECT pipe_id,name FROM ".$db->prefix($mydirname."_pipes")." WHERE in_submenu ORDER BY weight" ;
@@ -64,7 +64,7 @@ function d3pipes_common_get_submenu( $mydirname , $caller = 'xoops_version' )
 
 function d3pipes_common_update_joint_option( $mydirname , $pipe_id , $joint_type , $option )
 {
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 
 	$pipe_id = intval( $pipe_id ) ;
 
@@ -82,7 +82,7 @@ function d3pipes_common_update_joint_option( $mydirname , $pipe_id , $joint_type
 
 function d3pipes_common_get_default_joint_class( $mydirname , $joint_type )
 {
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 
 	list( $ret ) = $db->fetchRow( $db->query( "SELECT default_class FROM ".$db->prefix($mydirname."_joints")." WHERE joint_type=".$db->quoteString($joint_type) ) ) ;
 	if( empty( $ret ) ) {
@@ -190,8 +190,8 @@ function &d3pipes_common_get_joint_object( $mydirname , $joint_type , $joint_cla
 
 function d3pipes_common_get_pipe4assign( $mydirname , $pipe_id )
 {
-	$db =& Database::getInstance() ;
-	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
+	$db = Database::getInstance() ;
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
 
 	// fetch pipe_row
 	$pipe_row = $db->fetchArray( $db->query( "SELECT * FROM ".$db->prefix($mydirname."_pipes")." WHERE pipe_id=".intval($pipe_id) ) ) ;
@@ -229,8 +229,8 @@ function d3pipes_common_fetch_entries( $mydirname , $pipe_row , $max_entries , &
 
 	if( empty( $pipe_row ) ) return array() ;
 
-	$db =& Database::getInstance() ;
-	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
+	$db = Database::getInstance() ;
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
 
 	$joints = $pipe_row['joints'] ;
 	$pipe_id = $pipe_row['pipe_id'] ;

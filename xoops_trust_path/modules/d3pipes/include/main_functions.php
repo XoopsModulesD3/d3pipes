@@ -4,7 +4,7 @@ function d3pipes_main_fetch_entries_main_aggr( $mydirname , &$errors , $max_entr
 {
 	global $xoopsModuleConfig ;
 
-	$db =& Database::getInstance() ;
+	$db = Database::getInstance() ;
 
 	// get pipe_ids for latest headlines (main_aggr)
 	$result = $db->query( "SELECT pipe_id FROM ".$db->prefix($mydirname."_pipes")." WHERE main_aggr ORDER BY weight" ) ;

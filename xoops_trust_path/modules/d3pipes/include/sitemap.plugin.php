@@ -2,8 +2,8 @@
 
 function b_sitemap_d3pipes( $mydirname ) {
 
-	$db =& Database::getInstance();
-	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
+	$db = Database::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 	$ret = array();
 
 	$sql = "SELECT pipe_id,name FROM ".$db->prefix($mydirname."_pipes")." WHERE main_disp=1 ORDER BY weight" ;
